@@ -1,0 +1,119 @@
+@import './variables';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background-color: $main-color;
+  overflow-y: scroll;
+}
+
+
+main {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  //border: 2px solid black;
+  .main-foto {
+    position: fixed;
+    z-index: -1;
+  }
+  & img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  //background-image: url("https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png");
+}
+
+.none {
+  display: none;
+}
+
+.active {
+  display: flex;
+  //animation: showNavElements 600ms ease-in-out both;
+}
+
+.active-slider {
+  display: flex;
+  animation: showSlider 1300ms ease-in-out both;
+}
+
+@keyframes showNavElements {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+@keyframes showSlider {
+  from {}
+  to {
+      $heigth: 60vh;
+      $width: $heigth * 3/2;
+      $top: (100vh - $heigth)/2;
+      $left: calc((100vw - (60vh * 3/2))/2);
+      height: $heigth;
+      width: $width;
+
+      top: $top;
+      left: $left;
+      transform: translate(0);
+      }
+}
+
+
+
+//@include displaySlider;
+
+//@include test(blue);
+
+@media(max-width: 700px) {
+  .active-slider {
+    //display: flex;
+    animation: showSliderMobile 1300ms ease-in-out both;
+  }
+
+  @keyframes showSliderMobile {
+    from {}
+    to {
+        $width: 60vw;
+        $heigth: $width * 2/3;
+        $top: calc(100vh - 60vw *2/3)/2;
+        $left: calc((100vw - (60vw * 2/3))/4);
+
+        width: $width;
+        height: $heigth;
+
+        top: $top;
+        left: $left;
+        transform: translate(0);
+        }
+  }
+}
+
+
+
+@media(max-width: 386px) {
+  @include grid('sm');
+}
+
+@media(min-width: 444px) {
+  @include grid('md');
+}
+
+@media(min-width: 780px) {
+  @include grid('lg');
+}
+
+@media(min-width: 1200px) {
+  @include grid('xl');
+}

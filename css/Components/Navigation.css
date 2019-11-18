@@ -1,0 +1,46 @@
+/* FOTO SIZES */
+.nav-style {
+  position: fixed;
+  height: 66px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  font-family: "Overpass", sans-serif;
+  width: 100%;
+  z-index: 300;
+}
+
+.nav-style ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 18px;
+}
+
+.nav-style ul li {
+  font-size: 30px;
+}
+
+.nav-style ul li a {
+  color: inherit;
+  /* blue colors for links too */
+  text-decoration: inherit;
+  /* no underline */
+}
+
+.active-nav {
+  border-bottom: 2px solid black;
+}
+
+@media (max-width: 444px) {
+  .nav-style ul {
+    justify-content: space-between;
+  }
+  .nav-style ul li {
+    font-size: 20px;
+  }
+}
+
+/*# sourceMappingURL=Navigation.css.map */
